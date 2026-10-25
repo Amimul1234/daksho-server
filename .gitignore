@@ -1,0 +1,5 @@
+data/
+daksho
+*.exe
+node_modules/
+e2e-out/

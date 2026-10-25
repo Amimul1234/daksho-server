@@ -1,0 +1,22 @@
+[
+ {"name":"half paid on time","today":"2026-10-25",
+  "enrollment":{"id":"e1","fee":6000,"admission":1000,"discount":0,"status":"running","plan":[{"n":1,"amount":3000,"due":"2026-10-01"},{"n":2,"amount":3000,"due":"2026-11-01"}]},
+  "payments":[{"id":"p1","enrollmentId":"e1","amount":1000,"label":"ভর্তি ফি"},{"id":"p2","enrollmentId":"e1","amount":3000,"label":""}],
+  "want":{"Total":3000,"Overdue":0,"LateDays":0,"AdmissionDue":0,"NextRem":3000,"Sts":["paid","later"]}},
+ {"name":"late and partly paid","today":"2026-11-06",
+  "enrollment":{"id":"e1","fee":6000,"admission":1000,"discount":0,"status":"running","plan":[{"n":1,"amount":3000,"due":"2026-10-01"},{"n":2,"amount":3000,"due":"2026-11-01"}]},
+  "payments":[{"id":"p1","enrollmentId":"e1","amount":3000,"label":""},{"id":"p2","enrollmentId":"e1","amount":500,"label":""},{"id":"p3","enrollmentId":"other","amount":9000,"label":""}],
+  "want":{"Total":3500,"Overdue":3500,"LateDays":5,"AdmissionDue":1000,"NextRem":2500,"Sts":["paid","late"]}},
+ {"name":"admission unpaid, nothing late","today":"2026-10-25",
+  "enrollment":{"id":"e1","fee":6000,"admission":1000,"discount":0,"status":"running","plan":[{"n":1,"amount":6000,"due":"2026-12-01"}]},
+  "payments":[],
+  "want":{"Total":7000,"Overdue":1000,"LateDays":0,"AdmissionDue":1000,"NextRem":6000,"Sts":["later"]}},
+ {"name":"void ignored, due soon, discount","today":"2026-10-25",
+  "enrollment":{"id":"e1","fee":4500,"admission":1000,"discount":500,"status":"running","plan":[{"n":1,"amount":2000,"due":"2026-10-27"},{"n":2,"amount":2000,"due":"2026-11-27"}]},
+  "payments":[{"id":"p1","enrollmentId":"e1","amount":2000,"label":"","void":"ভুল"}],
+  "want":{"Total":5000,"Overdue":1000,"LateDays":0,"AdmissionDue":1000,"NextRem":2000,"Sts":["soon","later"]}},
+ {"name":"dropped owes nothing","today":"2026-10-25",
+  "enrollment":{"id":"e1","fee":3000,"admission":1000,"discount":0,"status":"dropped","plan":[{"n":1,"amount":3000,"due":"2026-10-01"}]},
+  "payments":[],
+  "want":{"Total":0,"Overdue":0,"LateDays":24,"AdmissionDue":1000,"NextRem":3000,"Sts":["late"]}}
+]
